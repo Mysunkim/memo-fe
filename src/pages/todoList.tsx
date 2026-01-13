@@ -1,4 +1,5 @@
 import type { Todo } from "../types/todo";
+import Button from "../components/Button/Button";
 
 const todos: Todo[] = [
   {
@@ -49,6 +50,10 @@ export const TodoList = () => {
           ))}
         </tbody>
       </table>
+
+      <div>
+        <Button>일정추가</Button>
+      </div>
     </div>
   );
 };
