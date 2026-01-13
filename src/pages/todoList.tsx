@@ -1,5 +1,6 @@
 import type { Todo } from "../types/todo";
 import Button from "../components/Button/Button";
+import { Link } from "react-router-dom";
 
 const todos: Todo[] = [
   {
@@ -52,7 +53,7 @@ export const TodoList = () => {
       </table>
 
       <div>
-        <Button>일정추가</Button>
+        <Link to="/register"><Button>일정추가</Button></Link>
       </div>
     </div>
   );
