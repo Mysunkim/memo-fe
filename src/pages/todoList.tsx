@@ -4,19 +4,34 @@ import { Link } from "react-router-dom";
 
 const todos: Todo[] = [
   {
+    id:1,
     date: '2026-01-20',
     title: '여자친구 생일 준비',
+    content:'여자친구가좋아할만한곳찾아보기',
+    time:'12시',
     dDay: 7,
+    createdAt:"2025-12-21",
+    updatedAt:"2025-12-24"
   },
   {
+    id:2,
     date: '2026-01-25',
     title: '여행 예약',
+    content:'여행사전화하기,여행할곳조사하기',
+    time:'13시',
     dDay: 12,
+    createdAt:"2025-10-22",
+    updatedAt:"2025-12-24"
   },
   {
+    id:3,
     date: '2026-02-01',
     title: '렌터카 확인',
+    content:'렌터카회사전화하기',
+    time:'14시',
     dDay: 19,
+    createdAt:"2025-08-21",
+    updatedAt:"2025-12-24"
   },
 ];
 
@@ -25,47 +40,29 @@ export const TodoList = () => {
     <div>
       <h2 style={{ marginBottom: '16px' }}>📅 일정 관리</h2>
 
-      <table
-        style={{
-          width: '100%',
-          borderCollapse: 'collapse',
-        }}
-      >
-        <thead>
-          <tr style={{ background: '#f5f5f5' }}>
-            <th style={thStyle}>날짜</th>
-            <th style={thStyle}>할 일</th>
-            <th style={thStyle}>D-Day</th>
-          </tr>
-        </thead>
+      {/* 헤더 */}
+      <ul className="todo-header">
+        <li>날짜</li>
+        <li>할 일</li>
+        <li>D-Day</li>
+      </ul>
 
-        <tbody>
-          {todos.map((todo, index) => (
-            <tr key={index}>
-              <td style={tdStyle}>{todo.date}</td>
-              <td style={tdStyle}>{todo.title}</td>
-              <td style={tdStyle}>
-                D-{todo.dDay}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {/* 목록 */}
+      <ul className="todo-list">
+        {todos.map((todo) => (
+          <li key={todo.id} className="todo-item">
+            <Link to={`/todo/${todo.id}`} className="todo-link">
+              <span>{todo.date}</span>
+              <span>{todo.title}</span>
+              <span>D-{todo.dDay}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
 
       <div>
         <Link to="/register"><Button>일정추가</Button></Link>
       </div>
     </div>
   );
-};
-
-const thStyle: React.CSSProperties = {
-  padding: '12px',
-  border: '1px solid #ddd',
-  textAlign: 'left',
-};
-
-const tdStyle: React.CSSProperties = {
-  padding: '12px',
-  border: '1px solid #ddd',
 };

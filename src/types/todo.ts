@@ -1,5 +1,10 @@
 export type Todo = {
-  date: string;
+  id: number;
+  date: string; // "2026-01-07"
   title: string;
-  dDay: number;
+  time:string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  dDay:number;
 };
